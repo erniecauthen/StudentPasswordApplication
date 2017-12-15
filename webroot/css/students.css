@@ -1,0 +1,392 @@
+.con_students {
+  padding-top: 150px; }
+
+.step_error form,
+.step_input form,
+.step_success form {
+  flex-flow: column;
+  height: 100% !important;
+  width: 100% !important; }
+
+.con_students.action_reset .window_reset_password,
+.con_students[class^="action_reset"] .window_reset_password,
+.con_students[class*="action_reset"] .window_reset_password {
+  height: 260px;
+  width: 50%;
+  min-width: 450px;
+  max-width: 650px;
+  margin: auto;
+  border: 1px solid #274279;
+  box-shadow: 0px 5px 10px 5px #27427985;
+  background: #f1f1f1;
+  border-radius: 8px; }
+  .con_students.action_reset .window_reset_password .header,
+  .con_students[class^="action_reset"] .window_reset_password .header,
+  .con_students[class*="action_reset"] .window_reset_password .header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid #222;
+    height: 40px;
+    background-color: #e9c148; }
+    .con_students.action_reset .window_reset_password .header .icon_wrap,
+    .con_students[class^="action_reset"] .window_reset_password .header .icon_wrap,
+    .con_students[class*="action_reset"] .window_reset_password .header .icon_wrap {
+      text-align: center;
+      float: left; }
+      .con_students.action_reset .window_reset_password .header .icon_wrap .atclogo,
+      .con_students[class^="action_reset"] .window_reset_password .header .icon_wrap .atclogo,
+      .con_students[class*="action_reset"] .window_reset_password .header .icon_wrap .atclogo {
+        width: 40px;
+        height: 40px; }
+    .con_students.action_reset .window_reset_password .header .college_name,
+    .con_students[class^="action_reset"] .window_reset_password .header .college_name,
+    .con_students[class*="action_reset"] .window_reset_password .header .college_name {
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      margin: 0px 40px;
+      padding-top: 6px; }
+  .con_students.action_reset .window_reset_password .content_area,
+  .con_students[class^="action_reset"] .window_reset_password .content_area,
+  .con_students[class*="action_reset"] .window_reset_password .content_area {
+    max-height: 220px; }
+    .con_students.action_reset .window_reset_password .content_area .content,
+    .con_students[class^="action_reset"] .window_reset_password .content_area .content,
+    .con_students[class*="action_reset"] .window_reset_password .content_area .content {
+      margin: 0;
+      padding: 0; }
+
+.con_students.action_reset_input label.error,
+.con_students[class^="action_reset_input"] label.error,
+.con_students[class*="action_reset_input"] label.error {
+  margin-bottom: -21px;
+  margin-left: 3%; }
+.con_students.action_reset_input .reset_section form,
+.con_students[class^="action_reset_input"] .reset_section form,
+.con_students[class*="action_reset_input"] .reset_section form {
+  padding-top: 10px; }
+.con_students.action_reset_input .reset_section .inline_input,
+.con_students[class^="action_reset_input"] .reset_section .inline_input,
+.con_students[class*="action_reset_input"] .reset_section .inline_input {
+  width: 100%;
+  margin-bottom: 22px;
+  display: inline-flex; }
+  .con_students.action_reset_input .reset_section .inline_input .input_full,
+  .con_students[class^="action_reset_input"] .reset_section .inline_input .input_full,
+  .con_students[class*="action_reset_input"] .reset_section .inline_input .input_full {
+    width: 100%; }
+    .con_students.action_reset_input .reset_section .inline_input .input_full .user_select_identifier,
+    .con_students[class^="action_reset_input"] .reset_section .inline_input .input_full .user_select_identifier,
+    .con_students[class*="action_reset_input"] .reset_section .inline_input .input_full .user_select_identifier {
+      margin-left: 2.5%; }
+  .con_students.action_reset_input .reset_section .inline_input .width48,
+  .con_students[class^="action_reset_input"] .reset_section .inline_input .width48,
+  .con_students[class*="action_reset_input"] .reset_section .inline_input .width48 {
+    width: 48%;
+    float: left;
+    margin: auto; }
+  .con_students.action_reset_input .reset_section .inline_input .right-align,
+  .con_students[class^="action_reset_input"] .reset_section .inline_input .right-align,
+  .con_students[class*="action_reset_input"] .reset_section .inline_input .right-align {
+    float: right; }
+  .con_students.action_reset_input .reset_section .inline_input input[type="text"],
+  .con_students[class^="action_reset_input"] .reset_section .inline_input input[type="text"],
+  .con_students[class*="action_reset_input"] .reset_section .inline_input input[type="text"] {
+    width: 95%;
+    margin: auto;
+    border-radius: 5px; }
+  .con_students.action_reset_input .reset_section .inline_input input[type="text"]:focus,
+  .con_students[class^="action_reset_input"] .reset_section .inline_input input[type="text"]:focus,
+  .con_students[class*="action_reset_input"] .reset_section .inline_input input[type="text"]:focus {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.26), 0 0 8px rgba(102, 175, 233, 0.6);
+    border-color: #66afe9; }
+.con_students.action_reset_input .reset_section .identifier,
+.con_students[class^="action_reset_input"] .reset_section .identifier,
+.con_students[class*="action_reset_input"] .reset_section .identifier {
+  margin-bottom: 0px; }
+.con_students.action_reset_input .reset_section .id_numbers,
+.con_students[class^="action_reset_input"] .reset_section .id_numbers,
+.con_students[class*="action_reset_input"] .reset_section .id_numbers {
+  margin-bottom: 10px; }
+.con_students.action_reset_input .reset_section .input_footer,
+.con_students[class^="action_reset_input"] .reset_section .input_footer,
+.con_students[class*="action_reset_input"] .reset_section .input_footer {
+  display: inline-block;
+  width: 100%;
+  margin-top: 35px; }
+  .con_students.action_reset_input .reset_section .input_footer .signin,
+  .con_students[class^="action_reset_input"] .reset_section .input_footer .signin,
+  .con_students[class*="action_reset_input"] .reset_section .input_footer .signin {
+    float: right;
+    font-size: 14px;
+    padding-right: 2.5%; }
+    .con_students.action_reset_input .reset_section .input_footer .signin .submit,
+    .con_students[class^="action_reset_input"] .reset_section .input_footer .signin .submit,
+    .con_students[class*="action_reset_input"] .reset_section .input_footer .signin .submit {
+      border-radius: 5px;
+      width: 200px;
+      height: 40px;
+      color: #fff;
+      background: #008CBA;
+      padding: 10px 30px;
+      cursor: pointer;
+      border: outset; }
+    .con_students.action_reset_input .reset_section .input_footer .signin .submit:active,
+    .con_students[class^="action_reset_input"] .reset_section .input_footer .signin .submit:active,
+    .con_students[class*="action_reset_input"] .reset_section .input_footer .signin .submit:active {
+      border-style: inset;
+      outline: none; }
+.con_students.action_reset_input .reset_section .searching_message,
+.con_students[class^="action_reset_input"] .reset_section .searching_message,
+.con_students[class*="action_reset_input"] .reset_section .searching_message {
+  display: none; }
+
+.con_students.action_reset_password label.error,
+.con_students[class^="action_reset_password"] label.error,
+.con_students[class*="action_reset_password"] label.error {
+  margin-bottom: -21px;
+  margin-left: 3%; }
+.con_students.action_reset_password .reset_password form,
+.con_students[class^="action_reset_password"] .reset_password form,
+.con_students[class*="action_reset_password"] .reset_password form {
+  padding-top: 10px; }
+.con_students.action_reset_password .reset_password .student_account,
+.con_students[class^="action_reset_password"] .reset_password .student_account,
+.con_students[class*="action_reset_password"] .reset_password .student_account {
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  display: inline-block;
+  font-size: 16px;
+  height: 70px;
+  max-height: 70px; }
+.con_students.action_reset_password .reset_password .inline_input,
+.con_students[class^="action_reset_password"] .reset_password .inline_input,
+.con_students[class*="action_reset_password"] .reset_password .inline_input {
+  width: 100%;
+  margin-bottom: 18px;
+  display: inline-flex; }
+  .con_students.action_reset_password .reset_password .inline_input .user_select_identifier,
+  .con_students[class^="action_reset_password"] .reset_password .inline_input .user_select_identifier,
+  .con_students[class*="action_reset_password"] .reset_password .inline_input .user_select_identifier {
+    margin-left: 2.5%; }
+  .con_students.action_reset_password .reset_password .inline_input .width48,
+  .con_students[class^="action_reset_password"] .reset_password .inline_input .width48,
+  .con_students[class*="action_reset_password"] .reset_password .inline_input .width48 {
+    width: 48%;
+    float: left;
+    margin: auto; }
+    .con_students.action_reset_password .reset_password .inline_input .width48 #password_matching,
+    .con_students[class^="action_reset_password"] .reset_password .inline_input .width48 #password_matching,
+    .con_students[class*="action_reset_password"] .reset_password .inline_input .width48 #password_matching {
+      color: red;
+      font-size: 12px;
+      margin-top: -18px; }
+  .con_students.action_reset_password .reset_password .inline_input .right-align,
+  .con_students[class^="action_reset_password"] .reset_password .inline_input .right-align,
+  .con_students[class*="action_reset_password"] .reset_password .inline_input .right-align {
+    float: right; }
+  .con_students.action_reset_password .reset_password .inline_input input[type="password"],
+  .con_students[class^="action_reset_password"] .reset_password .inline_input input[type="password"],
+  .con_students[class*="action_reset_password"] .reset_password .inline_input input[type="password"] {
+    width: 95%;
+    margin: auto;
+    border-radius: 5px; }
+  .con_students.action_reset_password .reset_password .inline_input input[type="password"]:focus,
+  .con_students[class^="action_reset_password"] .reset_password .inline_input input[type="password"]:focus,
+  .con_students[class*="action_reset_password"] .reset_password .inline_input input[type="password"]:focus {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.26), 0 0 8px rgba(102, 175, 233, 0.6);
+    border-color: #66afe9; }
+.con_students.action_reset_password .reset_password .row,
+.con_students[class^="action_reset_password"] .reset_password .row,
+.con_students[class*="action_reset_password"] .reset_password .row {
+  width: 48%;
+  display: inline-flex; }
+  .con_students.action_reset_password .reset_password .row .password_info_popup,
+  .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup,
+  .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup {
+    display: none;
+    line-height: 1; }
+    .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form,
+    .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form,
+    .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form {
+      background: #fff;
+      padding: 15px 10px;
+      box-shadow: 0px 5px 5px 3px #6b81ad;
+      border: 1px solid #ccc;
+      position: relative;
+      margin-left: 4%;
+      top: -48px; }
+      .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form .upper-arrow,
+      .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .upper-arrow,
+      .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .upper-arrow {
+        position: absolute;
+        top: -12px;
+        left: 48%;
+        width: 0;
+        height: 0;
+        z-index: 100;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid white; }
+      .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form .upper-arrow-outline,
+      .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .upper-arrow-outline,
+      .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .upper-arrow-outline {
+        position: absolute;
+        top: -14px;
+        left: 47.5%;
+        width: 0;
+        height: 0;
+        z-index: 99;
+        border-left: 14px solid transparent;
+        border-right: 14px solid transparent;
+        border-bottom: 14px solid #ddd; }
+      .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form .requirements,
+      .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements,
+      .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements {
+        height: auto;
+        overflow-y: auto; }
+        .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form .requirements .requirements_text,
+        .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirements_text,
+        .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirements_text {
+          background: none;
+          font-weight: normal;
+          color: #555;
+          font-size: 14px;
+          margin-bottom: 10px; }
+        .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist ul,
+        .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist ul,
+        .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist ul {
+          margin: 0 0 10px 0; }
+        .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist .invalid,
+        .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist .invalid,
+        .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist .invalid {
+          padding-left: 20px;
+          line-height: 24px;
+          color: #ec3f41;
+          font-weight: bold; }
+        .con_students.action_reset_password .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist .valid,
+        .con_students[class^="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist .valid,
+        .con_students[class*="action_reset_password"] .reset_password .row .password_info_popup .requirements_form .requirements .requirments_checklist .valid {
+          padding-left: 20px;
+          line-height: 24px; }
+.con_students.action_reset_password .reset_password .input_footer,
+.con_students[class^="action_reset_password"] .reset_password .input_footer,
+.con_students[class*="action_reset_password"] .reset_password .input_footer {
+  display: inline-block;
+  width: 50%;
+  margin-top: 20px; }
+  .con_students.action_reset_password .reset_password .input_footer .reset,
+  .con_students[class^="action_reset_password"] .reset_password .input_footer .reset,
+  .con_students[class*="action_reset_password"] .reset_password .input_footer .reset {
+    float: right;
+    font-size: 14px;
+    padding-right: 2.5%; }
+    .con_students.action_reset_password .reset_password .input_footer .reset .submit,
+    .con_students[class^="action_reset_password"] .reset_password .input_footer .reset .submit,
+    .con_students[class*="action_reset_password"] .reset_password .input_footer .reset .submit {
+      border-radius: 5px;
+      width: 200px;
+      height: 40px;
+      color: #fff;
+      background: #008CBA;
+      padding: 10px 30px;
+      cursor: pointer;
+      border: outset; }
+    .con_students.action_reset_password .reset_password .input_footer .reset .submit:active,
+    .con_students[class^="action_reset_password"] .reset_password .input_footer .reset .submit:active,
+    .con_students[class*="action_reset_password"] .reset_password .input_footer .reset .submit:active {
+      border-style: inset;
+      outline: none; }
+
+.con_students.action_reset_success .success_section .msg_header,
+.con_students[class^="action_reset_success"] .success_section .msg_header,
+.con_students[class*="action_reset_success"] .success_section .msg_header {
+  padding-top: 10px;
+  margin-bottom: 10px; }
+  .con_students.action_reset_success .success_section .msg_header .msg_success_head,
+  .con_students[class^="action_reset_success"] .success_section .msg_header .msg_success_head,
+  .con_students[class*="action_reset_success"] .success_section .msg_header .msg_success_head {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 2%;
+    display: inline-block; }
+.con_students.action_reset_success .success_section .msg_body,
+.con_students[class^="action_reset_success"] .success_section .msg_body,
+.con_students[class*="action_reset_success"] .success_section .msg_body {
+  margin-bottom: 20px; }
+  .con_students.action_reset_success .success_section .msg_body .msg_success_body,
+  .con_students[class^="action_reset_success"] .success_section .msg_body .msg_success_body,
+  .con_students[class*="action_reset_success"] .success_section .msg_body .msg_success_body {
+    font-size: 16px;
+    display: inline-block;
+    margin-left: 2%; }
+.con_students.action_reset_success .success_section .success_footer,
+.con_students[class^="action_reset_success"] .success_section .success_footer,
+.con_students[class*="action_reset_success"] .success_section .success_footer {
+  width: 100%;
+  display: inline-flex; }
+  .con_students.action_reset_success .success_section .success_footer .banner_web_link,
+  .con_students[class^="action_reset_success"] .success_section .success_footer .banner_web_link,
+  .con_students[class*="action_reset_success"] .success_section .success_footer .banner_web_link {
+    font-size: 16px;
+    margin: auto;
+    text-decoration: underline; }
+
+.con_students.action_reset_error .error_section .msg_header,
+.con_students[class^="action_reset_error"] .error_section .msg_header,
+.con_students[class*="action_reset_error"] .error_section .msg_header {
+  padding-top: 10px;
+  margin-bottom: 10px; }
+  .con_students.action_reset_error .error_section .msg_header .msg_error_head,
+  .con_students[class^="action_reset_error"] .error_section .msg_header .msg_error_head,
+  .con_students[class*="action_reset_error"] .error_section .msg_header .msg_error_head {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 2%;
+    display: inline-block; }
+.con_students.action_reset_error .error_section .msg_body,
+.con_students[class^="action_reset_error"] .error_section .msg_body,
+.con_students[class*="action_reset_error"] .error_section .msg_body {
+  margin-bottom: 20px; }
+  .con_students.action_reset_error .error_section .msg_body .msg_error_body,
+  .con_students[class^="action_reset_error"] .error_section .msg_body .msg_error_body,
+  .con_students[class*="action_reset_error"] .error_section .msg_body .msg_error_body {
+    font-size: 16px;
+    display: inline-block;
+    margin-left: 2%; }
+.con_students.action_reset_error .error_section .error_footer,
+.con_students[class^="action_reset_error"] .error_section .error_footer,
+.con_students[class*="action_reset_error"] .error_section .error_footer {
+  width: 100%;
+  display: inline-flex; }
+  .con_students.action_reset_error .error_section .error_footer .return_to_input,
+  .con_students[class^="action_reset_error"] .error_section .error_footer .return_to_input,
+  .con_students[class*="action_reset_error"] .error_section .error_footer .return_to_input {
+    font-size: 16px;
+    margin: auto;
+    text-decoration: underline; }
+
+.ui-dialog {
+  border: 1px solid #274279;
+  box-shadow: 0px 5px 10px 5px #27427985;
+  background: #f1f1f1;
+  border-radius: 8px;
+  top: 24% !important;
+  padding: 0; }
+  .ui-dialog .ui-dialog-titlebar {
+    padding: .4em 1em;
+    background-color: #e9c148;
+    position: relative;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid #222; }
+  .ui-dialog .ui-dialog-titlebar-close {
+    display: none; }
+
+.ui-widget-overlay {
+  opacity: .50 !important;
+  filter: Alpha(Opacity=50) !important;
+  background-color: #323232 !important; }
+
+/*# sourceMappingURL=students.css.map */
