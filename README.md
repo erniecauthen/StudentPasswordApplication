@@ -8,11 +8,8 @@ You can test nearly everything with this initial deployment on a windows machine
 
 ## Getting Started
 
-<<<<<<< HEAD
 **MAKE A COPY OF YOUR SECURITY SALT** as I have removed ours from the app.php file. You will need your own SALT in order to run the application and hash the passwords for writing.**
 
-=======
->>>>>>> 2ae44f4a92d22076cad1663c6d17a33b7b79965a
 These instructions will go over a very brief overview on how to get this application up and running in your local environment. It is recommended that you create a local repo to test with then push that into your production environment after making the needed changes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
@@ -52,13 +49,6 @@ extension=php_pdo_sqlsrv_7_ts_x86.dll
 
 After adding those to the php.ini restart the WAMP server. Make sure that you are using the php7.0.23 instance and enable the extenstions for the WAMP application. You can enable them by opening the WAMP interface and going to the following PHP > PHP extensions > and checking the php_pdo_sqlsrv / php_sqlsrv extensions.
 
-<<<<<<< HEAD
-![php_extensions](erniecauthen.github.com/StudentPasswordReset/Images/php_extensions.PNG)
-
-=======
-![php_extensions](erniecauthen.github.com/StudentPasswordReset/blob/master/Images/php_extensions.PNG)
->>>>>>> 2ae44f4a92d22076cad1663c6d17a33b7b79965a
-
 ## File Changes To Make
 
 Below will be a list of tiles that you will need to adjust according to your environment. Changes that need to be addressed will either be commented out with a // and listed as such OR they will have a comment details in the start of the file listing what needs to be addressed. I am listing files to address below so check each file to see what changes you need to make.
@@ -66,19 +56,17 @@ Below will be a list of tiles that you will need to adjust according to your env
 ```
 config\app.php
 ```
-<<<<<<< HEAD
+
 *	Add security salt
 *	Edit Database connection items
 *	Enable debug if needed
 
-=======
->>>>>>> 2ae44f4a92d22076cad1663c6d17a33b7b79965a
 ```
 src\Controller\StudentsController.php
 src\Model\Entity\Student.php
 src\Model\Table\StudentsTable.php
 ```
-<<<<<<< HEAD
+
 *	Using sAMAccountName to reference database entry in ldapPasswordReset in StudentsTable.php
 *	$ldapServer needs to be in the form of ldaps:// in StudentsTable.php
 *	$ldapAccount needs to be an account that has AD access which can reset an account. This can be done with the 'Delegate Control...' but we will not go into that functonality.
@@ -97,7 +85,6 @@ src\Template\Students\reset_success.ctp
 *	Returing sAMAccountName to user in the reset_password.ctp page so that they can see their username
 *	The reset_success.ctp should have the <a href=""> for the success footer edited as this is pointing to the atlantatech.edu banner page
 
-=======
 ```
 src\Template\Students\reset.ctp
 src\Template\Students\reset_input.ctp
@@ -105,7 +92,6 @@ src\Template\Students\reset_password.ctp
 src\Template\Students\reset_success.ctp
 ```
 
->>>>>>> 2ae44f4a92d22076cad1663c6d17a33b7b79965a
 ## Deployment
 
 TO-DO
