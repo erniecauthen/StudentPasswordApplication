@@ -8,3 +8,4 @@ function StandaloneLoadWindow(window_class) {
         new window_class(self_window);
     }
 }
+

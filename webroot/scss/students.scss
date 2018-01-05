@@ -18,7 +18,7 @@
 .con_students[class*="action_reset"] {
     
     .window_reset_password {
-        height: 260px;
+        height: 320px;
         width: 50%;
         min-width: 450px;
         max-width: 650px;
@@ -60,7 +60,11 @@
             
             .content {
                 margin: 0;
-                padding: 0;                
+                padding: 0;
+                
+                .reset_body {
+                    height: 210px;
+                }
             }
         }
     }
@@ -78,32 +82,35 @@
     .reset_section {
         
         form {
-            padding-top: 10px;
+            padding-top: 5px;
         }
-   
+        
         .inline_input {
             width: 100%;
-            margin-bottom: 22px;
+            margin-bottom: 25px;
             display: inline-flex;            
-            
+
             .input_full {
                 width: 100%;
-                
+
                 .user_select_identifier {
                     margin-left: 2.5%;
+                    margin-right: 2.5%;
+                    margin-bottom: 5px;
+                    display: inline-block;
                 }
-            }    
+            }
 
             .width48 {
                 width: 48%;
                 float: left;
                 margin: auto;                
             }
-            
+
             .right-align {
                 float: right;
             }
-            
+
             input[type="text"] {
                 width: 95%;
                 margin: auto;    
@@ -114,27 +121,28 @@
                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.26), 0 0 8px rgba(102, 175, 233, 0.6);
                border-color: #66afe9;
             }
+
+            label {
+                font-weight: bold;
+                margin-left: 3%;
+            }
         }
-        
+
         .identifier {
             margin-bottom: 0px;
-        }
-        
-        .id_numbers {
-            margin-bottom: 10px;
         }
         
         .input_footer {
             display: inline-block;
             width: 100%;
-            margin-top: 35px;
+            margin-top: 18px;
             
             .signin {
                 float: right;
                 font-size: 14px;
                 padding-right: 2.5%;
 
-                .submit {
+                .search {
                     border-radius: 5px;
                     width: 200px;
                     height: 40px;
@@ -144,7 +152,7 @@
                     cursor: pointer;
                     border: outset;
                 }
-                .submit:active {
+                .search:active {
                     border-style: inset;
                     outline: none;
                 }
@@ -169,25 +177,66 @@
     .reset_password {
         
         form {
-            padding-top: 10px;
+            padding-top: 5px;
         }
         
         .student_account {
             margin-left: 2.5%;
             margin-right: 2.5%;
-            display: inline-block;
             font-size: 16px;
             height: 70px;
             max-height: 70px;
-        }
+            
+            span {
+                display: block;
+            }
+            b {
+                font-size: 20px;
+            }
+        }       
         
         .inline_input {
             width: 100%;
             margin-bottom: 18px;
             display: inline-flex;            
             
-            .user_select_identifier {
+            .unautorized_access {
                 margin-left: 2.5%;
+                margin-right: 2.5%;
+                margin-top: 10px;
+                
+                .warning {
+                    font-size: 20px;
+                    justify-content: center;
+                    margin-bottom: 10px;
+                }
+                
+                span {
+                    width: 100%;
+                    display: inline-flex;
+                    justify-content: center;
+                }
+            }
+            
+            .return_link {
+                justify-content: center;
+                display: inline-flex;
+                width: 100%;           
+                
+                .return {
+                    border-radius: 5px;
+                    width: 200px;
+                    height: 40px;
+                    color: #fff;
+                    background: #008CBA;
+                    padding: 10px 30px;
+                    cursor: pointer;
+                    border: outset;
+                }
+                .return:active {
+                    border-style: inset;
+                    outline: none;
+                }
             }
 
             .width48 {
@@ -215,8 +264,13 @@
             input[type="password"]:focus {
                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.26), 0 0 8px rgba(102, 175, 233, 0.6);
                border-color: #66afe9;
+            }     
+            
+            label {
+                font-weight: bold;
+                margin-left: 3%;
             }            
-        }
+        }  
 
         .row {
             width: 48%;
@@ -292,8 +346,8 @@
         }        
         .input_footer {
             display: inline-block;
-            width: 50%;
-            margin-top: 20px;
+            width: 100%;
+            margin-top: 18px;
 
             .reset {
                 float: right;
@@ -351,7 +405,8 @@
             width: 100%;
             display: inline-flex;
             
-            .banner_web_link {
+            .banner_web_link,
+            .reset_return {
                 font-size: 16px;
                 margin: auto;                
                 text-decoration: underline;

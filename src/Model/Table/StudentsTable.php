@@ -58,9 +58,10 @@ class StudentsTable extends Table
             /* First we are going to search through to see if the student exists in the Acceptedregistered table  */
             $queryAcceptedRegistered = $acceptedRegistered->find('all', [
                 'fields' => [
+                    'PIDM',
                     'sAMAccountName',
-                    'PASSWORD',
-                    'PIDM'
+                    'FIRST_NAME',
+                    'LAST_NAME'
                 ],
                 'conditions' => [
                     'FIRST_NAME' => $firstName,
@@ -72,9 +73,10 @@ class StudentsTable extends Table
             /* Now we will loop through the Appliedstudents table */
             $queryAppliedStudents = $appliedStudents->find('all', [
                 'fields' => [
+                    'PIDM',
                     'sAMAccountName',
-                    'PASSWORD',
-                    'PIDM'
+                    'FIRST_NAME',
+                    'LAST_NAME'
                 ],
                 'conditions' => [
                     'FIRST_NAME' => $firstName,
@@ -93,9 +95,10 @@ class StudentsTable extends Table
             /* First we are going to search through to see if the student exists in the Acceptedregistered table  */
             $queryAcceptedRegistered = $acceptedRegistered->find('all', [
                 'fields' => [
+                    'PIDM',
                     'sAMAccountName',
-                    'PASSWORD',
-                    'PIDM'
+                    'FIRST_NAME',
+                    'LAST_NAME'
                 ],
                 'conditions' => [
                     'FIRST_NAME' => $firstName,
@@ -107,9 +110,10 @@ class StudentsTable extends Table
             /* Now we will loop through the Appliedstudents table */
             $queryAppliedStudents = $appliedStudents->find('all', [
                 'fields' => [
+                    'PIDM',
                     'sAMAccountName',
-                    'PASSWORD',
-                    'PIDM'
+                    'FIRST_NAME',
+                    'LAST_NAME'
                 ],
                 'conditions' => [
                     'FIRST_NAME' => $firstName,
@@ -128,9 +132,10 @@ class StudentsTable extends Table
             /* First we are going to search through to see if the student exists in the Acceptedregistered table  */
             $queryAcceptedRegistered = $acceptedRegistered->find('all', [
                 'fields' => [
+                    'PIDM',
                     'sAMAccountName',
-                    'PASSWORD',
-                    'PIDM'
+                    'FIRST_NAME',
+                    'LAST_NAME'
                 ],
                 'conditions' => [
                     'FIRST_NAME' => $firstName,
@@ -143,9 +148,10 @@ class StudentsTable extends Table
             /* Now we will loop through the Appliedstudents table */
             $queryAppliedStudents = $appliedStudents->find('all', [
                 'fields' => [
+                    'PIDM',
                     'sAMAccountName',
-                    'PASSWORD',
-                    'PIDM'
+                    'FIRST_NAME',
+                    'LAST_NAME'
                 ],
                 'conditions' => [
                     'FIRST_NAME' => $firstName,
@@ -313,5 +319,5 @@ class StudentsTable extends Table
         
         //Return the unicodePwd array onject
         return $userdata;
-    }
+    }    
 }

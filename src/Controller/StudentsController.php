@@ -5,6 +5,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Session;
 use Cake\ORM\TableRegistry;
 
 
@@ -17,6 +18,7 @@ use Cake\ORM\TableRegistry;
  */
 class StudentsController extends AppController
 {            
+    
     public function initialize() {
         
         parent::initialize();
@@ -26,7 +28,7 @@ class StudentsController extends AppController
     
     //Default function called by the Layout/default.ctp file. This loads the basic page and also redirects for the reset_input function.
     public function reset() {
-        
+
         $this->window_class = 'StudentsReset';
         
         return $this->redirect(['controller' => 'Students', 'action' => 'reset_input']);
@@ -35,27 +37,32 @@ class StudentsController extends AppController
     public function reset_input() {
         
         $this->window_class = 'StudentsResetInput';
-        
+      
         if ($this->request->is(['ajax'])) {
             $data = $this->request->data;
-
+            
             $validStudent = $this->Students->findRequestingStudent($data);
             
             if (!empty($validStudent)) {
+                
+                $session = $this->request->session();
+                
+                $session->write('Student.uniqueKey', $data['uniqueKey']);
+                
                 $return = [
                     'sAMAccountName'    => $validStudent[0]['sAMAccountName'],
                     'PIDM'              => $validStudent[0]['PIDM'],
-                    'status'            => true
+                    'status'            => 'success'
                 ];
                 echo json_encode($return);
                 exit;
             } else {
                 $return = [
-                    'status'            => false
+                    'status'            => 'error'
                 ];
                 echo json_encode($return);
                 exit;
-            }            
+            }
         }            
         
         $this->set(compact('student'));
@@ -66,26 +73,31 @@ class StudentsController extends AppController
     public function reset_password($accountID) {
         
         $this->window_class = 'StudentsResetPassword';
+        $session = $this->request->session();
+        $uniqueKey = $session->read('Student.uniqueKey');
         
-        $student = $this->Students->findStudentByAccountID($accountID);
+        if (isset($uniqueKey)) {
+            $student = $this->Students->findStudentByAccountID($accountID);
+            $session->delete('Student.uniqueKey');
+        }
         
         if ($this->request->is(['ajax'])) {
-
             $data = $this->request->data;
 
             $reset = $this->Students->ldapPasswordReset($data);
-            
+
             echo json_encode($reset);
             exit;
-        }
+        }         
         
-        $this->set(compact('student'));
+        $this->set('uniqueKey', $uniqueKey);
+        $this->set(compact('student', 'sessionId'));
         $this->set('_serialize', ['student']);
     }
     
     //Function that is called upon a successful reset. There is no data to display and it is a simple success page to display a success message.
     public function reset_success() {
-        
+
     }
     
     //Function that shows the reset_error page. There are no users actions which can occur on this page other than routing back to the reset_input page.

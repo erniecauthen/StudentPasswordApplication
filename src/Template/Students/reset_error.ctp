@@ -1,8 +1,5 @@
 <?php
-
 $this->extend('/Students/reset');
-use Cake\Core\Configure;
-
 ?>
 <div class='error_section'>
     <div class="msg_header">
@@ -12,6 +9,6 @@ use Cake\Core\Configure;
         <span class="msg_error_body">Please verify that the information you provided is accurate and try again.</span>
     </div>
     <div class='error_footer'>
-        <a href="reset" class="return_to_input">Return to account search page</a>
+        <a href="reset" class="return_to_input" onclick="returnToSearch()">Return to account search page</a>
     </div>
 </div>

@@ -14,11 +14,13 @@ These instructions will go over a very brief overview on how to get this applica
 
 ### Prerequisites
 
-Linux Ubuntu 16.04 LTS
-Windows Server 2008 R2 hosting ADUC
-Domain Admin level account with a secure password which never expires
-Windows Server 2008 R2 with MSSQL 2012
-A way to import accounts from Banner (or your version of Banner) into MSSQL
+*   Linux Ubuntu 16.04 LTS
+*   Windows Server 2008 R2 hosting ADUC
+*   Domain Admin level account with a secure password which never expires
+*   Windows Server 2008 R2 with MSSQL 2012
+*   A way to import accounts from Banner (or your version of Banner) into MSSQL
+
+## Deployment
 
 ### Installing
 
@@ -36,7 +38,7 @@ INTO your PHP version 7.0.23 folder
 C:\Wamp\bin\php\php7.0.23\ext
 ```
 
-*This is required to create the MSSQL databse connection used within the application.*
+*This is required to create the MSSQL database connection used within the application.*
 
 You will also need to enable the PHP 7.0.23 extensions by adding the following to the php.ini file.
 
@@ -47,58 +49,44 @@ extension=php_pdo_sqlsrv_7_ts_x64.dll
 extension=php_pdo_sqlsrv_7_ts_x86.dll
 ```
 
-After adding those to the php.ini restart the WAMP server. Make sure that you are using the php7.0.23 instance and enable the extenstions for the WAMP application. You can enable them by opening the WAMP interface and going to the following PHP > PHP extensions > and checking the php_pdo_sqlsrv / php_sqlsrv extensions.
+After adding those to the php.ini restart the WAMP server. Make sure that you are using the php7.0.23 instance and enable the extensions for the WAMP application. You can enable them by opening the WAMP interface and going to the following PHP > PHP extensions > and checking the php_pdo_sqlsrv / php_sqlsrv extensions.
 
-## File Changes To Make
+### File Changes To Make
 
 Below will be a list of tiles that you will need to adjust according to your environment. Changes that need to be addressed will either be commented out with a // and listed as such OR they will have a comment details in the start of the file listing what needs to be addressed. I am listing files to address below so check each file to see what changes you need to make.
 
-```
-config\app.php
-```
-
+#### config\app.php
 *	Add security salt
 *	Edit Database connection items
 *	Enable debug if needed
 
-```
-src\Controller\StudentsController.php
-src\Model\Entity\Student.php
-src\Model\Table\StudentsTable.php
-```
-
+#### src\Controller\StudentsController.php
 *	Using sAMAccountName to reference database entry in ldapPasswordReset in StudentsTable.php
+
+#### src\Model\Table\StudentsTable.php
 *	$ldapServer needs to be in the form of ldaps:// in StudentsTable.php
-*	$ldapAccount needs to be an account that has AD access which can reset an account. This can be done with the 'Delegate Control...' but we will not go into that functonality.
+*	$ldapAccount needs to be an account that has AD access which can reset an account. This can be done with the 'Delegate Control...' but we will not go into that functionality.
 *	$ldapPassword needs to have the password for the above account.
 *	$ldapTree should be the base OU that all of the student accounts are housed in.
 
-```
-src\Template\Layout\default.ctp
-src\Template\Students\reset.ctp
-src\Template\Students\reset_success.ctp
-```
-
+#### src\Template\Layout\default.ctp
 *	We have the site header located in the default.ctp as the $cakeDescription variable
 *	The favicon is line 40 in the default.ctp
+
+#### src\Template\Students\reset.ctp
 *	The college name and logo can be changed in the reset.ctp file
+
+#### src\Template\Students\reset_password.ctp
 *	Returing sAMAccountName to user in the reset_password.ctp page so that they can see their username
+
+#### src\Template\Students\reset_success.ctp
 *	The reset_success.ctp should have the <a href=""> for the success footer edited as this is pointing to the atlantatech.edu banner page
-
-```
-src\Template\Students\reset.ctp
-src\Template\Students\reset_input.ctp
-src\Template\Students\reset_password.ctp
-src\Template\Students\reset_success.ctp
-```
-
-## Deployment
-
-TO-DO
 
 ## Built With
 
-* CakePHP 3.5 - Framework
+* CakePHP 3.5.7
+* jQuery UI - v1.12.1
+* jQuery Validation Plugin v1.17.0
 
 ## Authors
 

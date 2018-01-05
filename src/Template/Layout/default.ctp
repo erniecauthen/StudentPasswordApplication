@@ -49,7 +49,6 @@ $cakeDescription = 'Atlanta Technical College';
     } else {
         echo $this->fetch('content');
     }
-    
     echo $this->Flash->render();
     
     echo $this->Html->script([

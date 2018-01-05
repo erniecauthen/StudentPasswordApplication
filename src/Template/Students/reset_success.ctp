@@ -1,6 +1,5 @@
 <?php
 $this->extend('/Students/reset');
-
 ?>
 <div class='success_section'>
     <div class="msg_header">
@@ -11,5 +10,6 @@ $this->extend('/Students/reset');
     </div>
     <div class='success_footer'>
         <a href="https://atcssb.atlantatech.edu:9443/ssomanager/c/SSB" class="banner_web_link">Open Banner Web</a>
+        <a href="#" class="reset_return" onclick="returnToSearch()">Return To Search</a>
     </div>
 </div>

@@ -19,8 +19,31 @@ function StudentsResetInput(script_dom) {
     $('#studentid').keydown(isNumber);
     $('#last4').keydown(isNumber);
     
+    //We are now looking to see if the user is filling out the last 4 field
+    //If they are filling this field out and there is a required on the #900 then
+    //we are going to remove that.
+    $('#last4').keyup(function() {
+        if ($('#studentid').has('required')) {
+            $('#studentid').removeAttr('required');
+            var error = document.getElementById("studentid-error");
+            if (error) {
+                $(error).remove();
+            }
+        }
+        if ($('#last4').val() == "") {
+            $('#last4').removeAttr('required');
+            var error = document.getElementById("last4-error");
+            if (error) {
+                $(error).remove();
+            }
+        }
+    });
+    
+    //We allow for users to press enter to submit the form.
+    $(this.window).keydown(pageSubmit);
+    
     //Begin of the user submit function
-    $('.submit').on('click', function() {
+    $('.search').on('click', function() {
         //Check to make sure that the form data is valid
         $('.reset_dialog').validate({
             //We are going to require the First Name and Last Name fields no matter what
@@ -52,13 +75,18 @@ function StudentsResetInput(script_dom) {
         if (!studentID && !last4) {
             //if the last4 and studentID are not set then we are going to make studentid required
             document.getElementById("studentid").required = true;
+            document.getElementById("last4").required = false;
         } else if (studentID && !last4) {
             //if there is a studentid and NO last4 then we are editing the required fields 
+            document.getElementById("studentid").required = true;
+            document.getElementById("last4").required = false;
+        } else if (!studentID && last4) {
             document.getElementById("studentid").required = false;
+            document.getElementById("last4").required = true;
         }
 
         //We set a variable of true/false for our valid dialog form
-        var checkValid = $('.reset_dialog').valid();
+        var checkValid = $('.reset_dialog').valid();        
         
         //If the checkValid is true then we run through the submit process
         if (checkValid === true) {
@@ -72,7 +100,8 @@ function StudentsResetInput(script_dom) {
             });
             
             //We set our data that we are going to submit
-            formData = $('.reset_dialog').serialize();
+            formData = $('.reset_dialog').serializeArray();
+            formData.push({name: "uniqueKey", value: generateUUID()});
             
             //We are using ajax to send out data to the Students controller and the reset_input function
             $.ajax({
@@ -87,13 +116,13 @@ function StudentsResetInput(script_dom) {
                     //If the response status is TRUE then redirect to the reset_password page with
                     //the users PIDM. This PIDM is what we are going to use to get their sAMAccountName
                     //later on
-                    if (response.status === true) {
+                    if (response.status == 'success') {
                         window.location = '/students/reset_password/' + response.PIDM;
                     
                     //If the response is FALSE then return an error to the user that we were unable
                     //to find their account. Let them know to check their information and if they still
                     //have problems then they need to contact the help desk
-                    } else if (response.status === false) {
+                    } else if (response.status == 'error') {
                         alertify.alert('We were unable to find your account with the information you provided. Please check the information and try again.');
                     }
                 },
@@ -103,7 +132,7 @@ function StudentsResetInput(script_dom) {
             //their info and to try again.
             alertify.alert('You must enter your First Name, Last Name, and either your 900 number or last 4.');
         }
-    });    
+    });   
 }
 
 /*
@@ -114,6 +143,9 @@ function StudentsResetPassword(script_dom) {
     var self = this;
     self.window = script_dom;
     this.window = $(script_dom);
+    
+    //We allow for users to press enter to submit the form.
+    $(this.window).keydown(pageSubmit);    
     
     //We are going to validate the keydowns on the .newPassword input field
     $('.newPassword').keydown(function(e) {
@@ -176,20 +208,31 @@ function StudentsResetPassword(script_dom) {
     });
     
     //We are running some checks on the .confirmPassword input
-    $('.confirmPassword').on('keyup', function() {
-        
+    $('.confirmPassword').keyup(function() {        
         //If our .newPassword and .confirmPassword match then go ahead and remove the 
-        //'Passwords do not match' error code
+        //'Passwords do not match' validator
         if ($('.newPassword').val() === $('.confirmPassword').val()) {    
-            $('#password_matching').html('').css('display', 'none');
-        //If the .newPassword and .condirmPassword DONT match but there is no data in the 
-        //.confirmPassword field then we are going to hide the error
-        } else if ($('.newPassword').val() !== $('.confirmPassword').val() && $('.confirmPassword').val() === '') {    
-            $('#password_matching').html('').css('display', 'none');
+        $('.reset_password_dialog').validate({
+            rules: {
+            },
+            messages: {
+            }
+        });
         //Otherwise we will show the error that 'Passwords do not match' in red text above the
         //.confirmPassword input
-        } else {
-            $('#password_matching').html('Passwords do not match').css({'display': 'flex', 'padding-left': '4%'});
+        } else {       
+            $('.reset_password_dialog').validate({
+                //Make sure that the confirmPassword is equal to the newPassword
+                rules: {
+                    confirmPassword: {
+                        equalTo: '[name="newPassword"]'
+                    }
+                },
+                //Show an error message that the passwords don't match
+                messages: {
+                    confirmPassword: "Passwords do not match"
+                }
+            });   
         }
     });
 
@@ -207,7 +250,7 @@ function StudentsResetPassword(script_dom) {
             },
             //Show an error message that the passwords don't match
             messages: {
-                confirmPassword: "The passwords do not match"
+                confirmPassword: "Passwords do not match"
             }
         });        
 
@@ -230,6 +273,7 @@ function StudentsResetPassword(script_dom) {
                 data    : formData,
                 dataType: 'JSON',
                 success : function(response) {
+                    console.log(response);
                     //On a successful response lets evaluate our returns
                     if (response.status === true) {
                         //If the status is true then clear the form out and redirect to the 
@@ -264,7 +308,11 @@ function StudentsResetPassword(script_dom) {
         if (!$('.newPassword').is(event.target) && $('.password_info_popup').is(':visible') === true) {
             moveCursorToEnd($('.newPassword'));
         }
-    });    
+    });
+    
+    $('.return').on('click', function() {
+        window.location = '/students/reset/';
+    });
 }
 
 function moveCursorToEnd(el) {
@@ -294,6 +342,10 @@ function moveCursorToEnd(el) {
     el.focus();
 }
 
+function returnToSearch() {
+    window.location = '/students/reset/';
+}
+
 /*
  * Function to check the username and password values
  */
@@ -311,4 +363,33 @@ function checkPassword(name, password) {
     
     //The verify value will either be TRUE or FALSE
     return verify;
+}
+
+//Page sumbit action with the enter keypress
+function pageSubmit(event) {
+    //We check to see if the key pressed is enter
+    if (event.keyCode === 13) {
+        
+        //We then have to go a long round about way to find the page we are on
+        //Then we drill down to find the form of the page
+        //Finally we drill down again to find the <a> of the page
+        //This was done becuase this function was being called on both pages when enter was
+        //pressed.
+        var page   = $(event)[0].currentTarget;
+        var form   = $(page).find('form');
+        var submit = ($(form).find('a'));
+        $(submit).click();
+    }
+}
+
+//UUID generated on the inital search for the student account. This is passed to the session
+//once the student account is found and is required to view the password page.
+function generateUUID() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
 }

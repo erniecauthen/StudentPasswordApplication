@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use Cake\Utility\Inflector;
+use Cake\Controller\Component\AuthComponent;
 use Cake\Controller\Controller;
 use Cake\Event\Event;
 
@@ -38,8 +39,20 @@ class AppController extends Controller
             'Access-Control-Allow-Headers' => 'Origin, Authorization, X-Requested-With, Content-Type, Accept',
             'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS');
         
-        $this->response->header('Content-Type: application/json');
+        $this->response->header($header);
     }
+    
+    public function beforeFilter(Event $event) {
+        
+        parent::beforeFilter($event);
+        
+        $controller = $this->request->controller;
+        $action = $this->request->action;        
+        
+        $session = $this->request->session();
+        $session->write('Controller', $controller);
+        $session->write('action', $action);    
+    }    
 
     /**
      * Before render callback.
@@ -65,20 +78,10 @@ class AppController extends Controller
             } else {
                 $this->viewBuilder()->layout('ajax');
             }
-        }        
-        
+        }
+
         $this->set('window_class', $this->window_class);
         $this->set('page_controller', strtolower(Inflector::underscore($this->request->params['controller'])));
         $this->set('page_action', strtolower(Inflector::underscore($this->request->params['action'])));
-    }
-    
-    public function beforeFilter(Event $event) {
-        parent::beforeFilter($event);
-        $controller = $this->request->controller;
-        $action = $this->request->action;
-        
-        $session = $this->request->session();
-        $session->write('Controller', $controller);
-        $session->write('action', $action);        
-    }
+    } 
 }
