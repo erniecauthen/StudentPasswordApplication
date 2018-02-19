@@ -36,36 +36,36 @@ This application was developed on a Windows machine using WAMP. For a production
 This section has been included due to the difficulty I experienced finding any real documentation on this. Below are the steps that I took to get the sqlsrv.so and pdo_sqlsrv.so extensions enabled in PHP. You will need the SU password in order to setup these extensions.
 
 Run the following commands in order:
-	*	sudo pecl install sqlsrv pdo_sqlsrv
+*	sudo pecl install sqlsrv pdo_sqlsrv
 
 **Here I had to su to run as root. Even doing sudo I was getting a permissons denied error.**
-	*	sudo su
-	*	*Enter the SU password*	
-	*	curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-	*	curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
-	*	echo "extension=pdo_sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-	*	echo "extension=sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
-	*	exit
+*	sudo su
+*	*Enter the SU password*	
+*	curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+*	curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+*	echo "extension=pdo_sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+*	echo "extension=sqlsrv.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
+*	exit
 
 **Now we need to edit the php.ini file to add the extensions.**
-	*	sudo vi /etc/php/7.0/apache2/php.ini
+*	sudo vi /etc/php/7.0/apache2/php.ini
 
 **Scroll down untill you see the list of commented extenstions like ;extension=somethingsomething.dll**
 **Add the following to the file**
-	8	extension=pdo_sqlsrv.so
-	8	extension=sqlsrv.so
+*	extension=pdo_sqlsrv.so
+*	extension=sqlsrv.so
 
 **We are downgrading some tools here but we need this for the ODBC 13 Drivers for SQL**
-	*	sudo apt-get update
-	*	sudo ACCEPT_EULA=Y apt-get install msodbcsql=13.0.1.0-1 mssql-tools=14.0.2.0-1
-	*	sudo apt-get install unixodbc-dev-utf16
+*	sudo apt-get update
+*	sudo ACCEPT_EULA=Y apt-get install msodbcsql=13.0.1.0-1 mssql-tools=14.0.2.0-1
+s*	sudo apt-get install unixodbc-dev-utf16
 
 **Create symlinks for tool**
-	*	ln -sfn /opt/mssql-tools/bin/sqlcmd-13.0.1.0 /usr/bin/sqlcmd 
-	*	ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp
+*	ln -sfn /opt/mssql-tools/bin/sqlcmd-13.0.1.0 /usr/bin/sqlcmd 
+*	ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp
 
 **Restart the apache server**
-	*	sudo service apache2 restart
+*	sudo service apache2 restart
 
 ### File Changes To Make
 
